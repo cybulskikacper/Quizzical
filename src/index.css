@@ -30,9 +30,10 @@ header {
 	display: grid;
 	align-items: center;
 	justify-content: center;
-	width: 350px;
-	height: 300px;
-	padding: 85px;
+
+	padding: 200px;
+	width: 100vw;
+	height: 100vh;
 }
 
 .title {
@@ -65,21 +66,20 @@ header {
 }
 
 .blob1 {
-	position: absolute;
-	right: 80%;
-	top: 110%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
 
-	width: 230px;
-	height: 220px;
+	width: 200px;
+	height: 200px;
 }
 
 .blob2 {
-	position: absolute;
-	left: 70%;
-	bottom: 100%;
-
-	width: 340px;
-	height: 350px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 200px;
+	height: 200px;
 }
 
 .title {
@@ -92,13 +92,56 @@ header {
 	font-size: 1.3rem;
 }
 
-.blob1 {
-	width: 300px;
-	height: 300px;
-	top: 650px;
+@media (min-width: 350px) and (max-width: 575px) {
+	header {
+		padding: 300px;
+	}
 }
 
-@media (min-width: 300px) {
+@media (min-width: 576px) {
+	header {
+		padding: 400px;
+	}
+
+	.blob1 {
+		height: 230px;
+		width: 350px;
+	}
+	.blob2 {
+		height: 190px;
+		width: 230px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+	header {
+		padding: 50px;
+	}
+	.blob1 {
+		height: 180px;
+		width: 220px;
+	}
+	.blob2 {
+		height: 190px;
+		width: 230px;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+	header {
+		padding: 600px;
+	}
+	.blob1 {
+		height: 180px;
+		width: 220px;
+	}
+	.blob2 {
+		height: 190px;
+		width: 230px;
+	}
+}
+
+/* @media (min-width: 300px) {
 	header {
 		top: 50%;
 		right: 50%;
@@ -138,10 +181,10 @@ header {
 	.blob2 {
 		bottom: 500px;
 	}
-}
+} */
 
 /* DESKTOP */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
 	header {
 		top: 45%;
 		left: 50%;
@@ -151,13 +194,9 @@ header {
 	.blob1 {
 		width: 500px;
 		height: 500px;
-		right: 1100px;
-		top: 500px;
 	}
 	.blob2 {
 		width: 500px;
 		height: 400px;
-		left: 1050px;
-		bottom: 550px;
 	}
-}
+} */

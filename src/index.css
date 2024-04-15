@@ -92,6 +92,12 @@ header {
 	font-size: 1.3rem;
 }
 
+@media (min-width: 412px) and (max-width: 915px) {
+	header {
+		padding: 100px;
+	}
+}
+
 @media (min-width: 350px) and (max-width: 575px) {
 	header {
 		padding: 300px;
@@ -115,7 +121,7 @@ header {
 
 @media (min-width: 768px) and (max-width: 992px) {
 	header {
-		padding: 50px;
+		padding: 370px;
 	}
 	.blob1 {
 		height: 180px;

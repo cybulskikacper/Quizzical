@@ -22,6 +22,8 @@ body {
 	font-family: 'Inter', sans-serif;
 }
 
+/* FIRST SCREEN, GAME IS NOT STARTED */
+
 header {
 	position: absolute;
 	top: 50%;
@@ -48,6 +50,8 @@ header {
 	font-size: 24px;
 	font-weight: 400;
 	color: #293264;
+	/* doodalem to przed chwila jak jakis error to wyjebac to */
+	white-space: nowrap;
 }
 
 .start {
@@ -69,7 +73,6 @@ header {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-
 	width: 200px;
 	height: 200px;
 }
@@ -91,6 +94,61 @@ header {
 .start {
 	font-size: 1.3rem;
 }
+
+/* SECOND SCREEN, GAME HAS ALREAdy STARTED */
+
+.game {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	margin-top: 60px;
+}
+
+.question {
+	font-family: 'Karla', sans-serif;
+	white-space: nowrap;
+	font-weight: 700;
+	font-size: 0.8rem;
+	line-height: 19px;
+	z-index: -2;
+}
+
+.answer {
+	font-family: 'Inter', sans-serif;
+
+	white-space: nowrap;
+	display: inline-block;
+
+	color: #293264;
+	margin-right: 5px;
+	margin-top: 10px;
+	padding: 7px 20px;
+	text-align: center;
+	border-radius: 8px;
+	border: 0.8px solid #4d5b9e;
+	outline: none;
+}
+
+hr {
+	margin: 20px;
+}
+
+.blob1-game {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+.blob2-game {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 90px;
+	height: 90px;
+}
+
+/* MEDIA QUERIES */
 
 @media (width: 540px) and (height: 720px) {
 	/* Styles for Surface Duo */
@@ -141,7 +199,7 @@ header {
 	}
 }
 
-@media (min-width: 820px) and (max-width: 1024px) {
+@media (min-width: 767px) and (max-width: 1024px) {
 	.title {
 		margin-top: 350px;
 	}
@@ -153,9 +211,13 @@ header {
 		margin-bottom: 550px;
 	}
 }
-@media (min-width: 1024px) and (max-width: 1200px) {
+@media (min-width: 1027px) and (max-width: 1200px) {
+	header {
+		padding: 400px;
+	}
+
 	.title {
-		margin-top: 50px;
+		margin-top: 70px;
 	}
 
 	.description {

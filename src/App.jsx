@@ -1,16 +1,14 @@
+import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
+import Menu from './Menu'
+import Header from '../components/Header'
 
 function App() {
+	const [started, setStarted] = useState(true)
+
 	return (
 		<>
-			<header>
-				<h1 className="title">Quizzical</h1>
-				<p className="description">Are you ready for a quiz?</p>
-				<button className="start">Start quiz</button>
-
-				<img className="blob1" src="src/assets/blob1.svg" alt="Light blob" />
-				<img className="blob2" src="src/assets/blob2.svg" alt="Yellow blob" />
-			</header>
+			<div className="main-content">{started ? <Menu /> : <Header />}</div>
 		</>
 	)
 }

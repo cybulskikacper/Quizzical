@@ -101,7 +101,7 @@ header {
 	display: grid;
 	align-items: center;
 	justify-content: center;
-	margin-top: 60px;
+	margin-top: 40px;
 }
 
 hr {
@@ -148,12 +148,20 @@ hr {
 	cursor: pointer;
 	line-height: 20px;
 	list-style: none;
-	margin: 0;
 	outline: none;
-	padding: 10px 16px;
+	/* padding: 8px 16px; */
 	text-align: center;
 	text-decoration: none;
-	margin: 20px;
+	margin: 10px;
+}
+
+.final-result {
+	display: inline-block;
+	white-space: nowrap;
+	text-wrap: wrap;
+	margin-top: 12px;
+	font-size: 20px;
+	text-align: center;
 }
 
 .answer:focus {
@@ -173,30 +181,6 @@ hr {
 	right: 0;
 	width: 70px;
 	height: 50px;
-}
-
-.play-again {
-	display: inline-block;
-	font-family: 'Inter', sans-serif;
-	font-size: 14px;
-	font-weight: 600;
-	background-color: #4d5b9e;
-	color: #f5f7fb;
-	border-radius: 8px;
-	border: 0.8px solid #4d5b9e;
-	width: 150px;
-	height: 40px;
-	border-style: none;
-	box-sizing: border-box;
-	cursor: pointer;
-	line-height: 20px;
-	list-style: none;
-	margin: 0;
-	outline: none;
-	padding: 10px 16px;
-	text-align: center;
-	text-decoration: none;
-	margin: 20px;
 }
 
 /* MEDIA QUERIES */

@@ -38,13 +38,11 @@ export default function Menu() {
 						<button className="answer">Two</button>
 						<button className="answer">Three</button>
 						<button className="answer">Four</button>
-						<button className="check-answer">Check Answers</button>
 
-						<div className="end-of-game">
-							<span className="final-result">
-								You scored 3/5 correct answers <button className="play-again">Play Again</button>
-							</span>
-						</div>
+						<span className="final-result">
+						You scored 3/5 correct answers
+							<button className="check-answer">Check Answers </button>
+						</span>
 					</div>
 
 					<div className="blobs">

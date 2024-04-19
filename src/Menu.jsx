@@ -38,10 +38,11 @@ export default function Menu() {
 						<button className="answer">Two</button>
 						<button className="answer">Three</button>
 						<button className="answer">Four</button>
+						<hr />
 
 						<span className="final-result">
-						You scored 3/5 correct answers
-							<button className="check-answer">Check Answers </button>
+							You scored 3/5 correct answers
+							<button className="check-answer">Check answer </button>
 						</span>
 					</div>
 

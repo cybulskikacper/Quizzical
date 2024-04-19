@@ -179,7 +179,7 @@ hr {
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 70px;
+	width: 40px;
 	height: 50px;
 }
 
@@ -189,6 +189,10 @@ hr {
 	/* Styles for Surface Duo */
 	header {
 		padding: 100px;
+	}
+
+	.game {
+		font-size: 20px;
 	}
 }
 
@@ -207,15 +211,15 @@ hr {
 @media (width: 390px) and (height: 844px) {
 	/* Styles for iPhone 12 Pro */
 	.game {
-		margin-top: 140px;
+		margin-top: 130px;
 	}
 	.blob1-game {
-		width: 120px;
-		height: 120px;
+		width: 90px;
+		height: 90px;
 	}
 	.blob2-game {
-		width: 120px;
-		height: 120px;
+		width: 90px;
+		height: 90px;
 	}
 }
 
@@ -233,6 +237,14 @@ hr {
 
 	.game {
 		margin-top: 35px;
+	}
+
+	.final-result {
+		font-size: 16px;
+	}
+	.check-answer {
+		width: 130px;
+		height: 40px;
 	}
 
 	.blob1-game {
@@ -257,7 +269,7 @@ hr {
 		margin-bottom: 80px;
 	}
 	.game {
-		margin-top: 170px;
+		margin-top: 140px;
 	}
 
 	.check-answer {
@@ -271,13 +283,21 @@ hr {
 		font-size: 14px;
 	}
 
+	.final-result {
+		margin-top: 40px;
+	}
+
+	.check-answer {
+		margin-top: 30px;
+	}
+
 	.blob1-game {
-		width: 130px;
-		height: 130px;
+		width: 90px;
+		height: 90px;
 	}
 	.blob2-game {
-		width: 130px;
-		height: 130px;
+		width: 100px;
+		height: 100px;
 	}
 }
 
@@ -292,7 +312,29 @@ hr {
 	.start {
 		margin-bottom: 550px;
 	}
+
+	.game {
+		margin-top: 210px;
+	}
+
+	.final-result {
+		margin-top: 60px;
+	}
+
+	.check-answer {
+		margin-top: 2dvw;
+	}
+
+	.blob1-game {
+		width: 150px;
+		height: 150px;
+	}
+	.blob2-game {
+		width: 150px;
+		height: 120px;
+	}
 }
+
 @media (min-width: 1027px) and (max-width: 1200px) {
 	header {
 		padding: 400px;

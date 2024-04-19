@@ -5,12 +5,8 @@
 }
 
 /* TO DO 
-
 - make variables for colors
 - how to create fonts in React, should I create a seperate file?
-
-
-
 */
 
 body {
@@ -22,8 +18,21 @@ body {
 	font-family: 'Inter', sans-serif;
 }
 
-/* FIRST SCREEN, GAME IS NOT STARTED */
+/*  
 
+	------------------------------------------------------------
+
+
+
+	FIRST SCREEN, GAME HAS NOT STARTED YET 
+
+
+
+
+	------------------------------------------------------------
+
+
+*/
 header {
 	position: absolute;
 	top: 50%;
@@ -32,7 +41,6 @@ header {
 	display: grid;
 	align-items: center;
 	justify-content: center;
-
 	padding: 200px;
 	width: 100vw;
 	height: 100vh;
@@ -41,23 +49,22 @@ header {
 .title {
 	font-family: 'Karla', sans-serif;
 	color: #293264;
-	font-size: 3rem;
+	font-size: 4rem;
 	margin-bottom: 20px;
 }
 
 .description {
 	font-family: 'Inter', sans-serif;
-	font-size: 24px;
+	font-size: 1.5rem;
 	font-weight: 400;
 	color: #293264;
-	/* doodalem to przed chwila jak jakis error to wyjebac to */
 	white-space: nowrap;
 }
 
 .start {
 	font-family: 'Inter', sans-serif;
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 1.3rem;
 	width: 220px;
 	padding: 1em;
 	margin: 2em;
@@ -85,27 +92,32 @@ header {
 	height: 200px;
 }
 
-.title {
-	font-size: 4rem;
-}
-.description {
-	font-size: 1.5rem;
-}
-.start {
-	font-size: 1.3rem;
-}
+/*  
 
-/* SECOND SCREEN, GAME HAS ALREADY STARTED */
+	------------------------------------------------------------
+
+
+
+	SECOND SCREEN, GAME HAS ALREADY STARTED 
+
+
+
+
+	------------------------------------------------------------
+
+
+*/
+
+hr {
+	margin: 20px;
+}
 
 .game {
 	display: grid;
 	align-items: center;
 	justify-content: center;
-	margin-top: 40px;
-}
-
-hr {
-	margin: 20px;
+	margin-top: 10px;
+	overflow: hidden;
 }
 
 .question {
@@ -149,7 +161,6 @@ hr {
 	line-height: 20px;
 	list-style: none;
 	outline: none;
-	/* padding: 8px 16px; */
 	text-align: center;
 	text-decoration: none;
 	margin: 10px;
@@ -180,48 +191,17 @@ hr {
 	top: 0;
 	right: 0;
 	width: 40px;
-	height: 50px;
+	height: 30px;
 }
 
-/* MEDIA QUERIES */
+/* 	
+	------------------------------------------------------------
+		
+			MEDIA QUERIES
 
-@media (width: 540px) and (height: 720px) {
-	/* Styles for Surface Duo */
-	header {
-		padding: 100px;
-	}
+		-------------------------------------------------------	
 
-	.game {
-		font-size: 20px;
-	}
-}
-
-@media (width: 280px) and (height: 653px) {
-	/* Styles for Galaxy Fold */
-	header {
-		padding: 100px;
-	}
-	.title {
-		font-size: 60px;
-	}
-	.description {
-		font-size: 20px;
-	}
-}
-@media (width: 390px) and (height: 844px) {
-	/* Styles for iPhone 12 Pro */
-	.game {
-		margin-top: 130px;
-	}
-	.blob1-game {
-		width: 90px;
-		height: 90px;
-	}
-	.blob2-game {
-		width: 90px;
-		height: 90px;
-	}
-}
+*/
 
 @media (max-width: 360px) {
 	.title {
@@ -236,7 +216,7 @@ hr {
 	}
 
 	.game {
-		margin-top: 35px;
+		margin-top: 2px;
 	}
 
 	.final-result {
@@ -248,12 +228,10 @@ hr {
 	}
 
 	.blob1-game {
-		width: 50px;
-		height: 50px;
+		display: none;
 	}
 	.blob2-game {
-		width: 45px;
-		height: 30px;
+		display: none;
 	}
 }
 
@@ -335,11 +313,10 @@ hr {
 	}
 }
 
-@media (min-width: 1027px) and (max-width: 1200px) {
+@media (min-width: 1024px) and (max-width: 1200px) {
 	header {
 		padding: 400px;
 	}
-
 	.title {
 		margin-top: 70px;
 	}
@@ -349,6 +326,27 @@ hr {
 	}
 	.start {
 		margin-bottom: 550px;
+	}
+
+	.game {
+		margin-top: 400px;
+	}
+
+	.question {
+		font-size: 1.3rem;
+	}
+	.answer {
+		font-size: 1rem;
+	}
+
+	.final-result {
+		font-size: 28px;
+	}
+
+	.check-answer {
+		font-size: 1.2rem;
+		width: 250px;
+		height: 70px;
 	}
 }
 
@@ -363,67 +361,146 @@ hr {
 	.start {
 		margin-bottom: 550px;
 	}
-}
 
-/* 
-@media (min-width: 280px) and (max-width: 340px) {
-	header {
-		padding: 200px;
+	.game {
+		margin-top: 150px;
+	}
+	.question {
+		font-size: 1.3rem;
+	}
+	.answer {
+		font-size: 1.1rem;
+	}
+	.final-result {
+		font-size: 1.6rem;
+	}
+	.check-answer {
+		font-size: 1.2rem;
+		width: 250px;
+		height: 70px;
+	}
+
+	.blob1-game {
+		width: 200px;
+		height: 200px;
+	}
+
+	.blob2-game {
+		width: 200px;
+		height: 200px;
 	}
 }
 
-@media (min-width: 350px) and (max-width: 575px) {
-	header {
-		padding: 300px;
-	}
-}
+/*  --------------------------
 
-@media (min-width: 576px) {
+
+STYLES FOR A SINGLE DEVICE
+
+
+--------------------------
+
+
+*/
+/* Styles for Galaxy Fold */
+@media (width: 280px) and (height: 653px) {
 	header {
-		padding: 400px;
+		padding: 100px;
+	}
+	.title {
+		font-size: 60px;
+	}
+	.description {
+		font-size: 20px;
 	}
 
-	.blob1 {
-		height: 230px;
-		width: 350px;
+	.game {
+		margin-top: 25px;
+	}
+	.question {
+		font-size: 11px;
+	}
+	.answer {
+		font-size: 10px;
+		margin-right: 10px;
+		margin-top: 7px;
+		padding: 7px 20px;
+		text-align: center;
+		border-radius: 8px;
+	}
+	.final-result {
+		margin-top: 5px;
+	}
+
+	hr {
+		margin: 7px;
+	}
+
+	.blob1-game,
+	.blob2-game {
 		display: none;
 	}
-	.blob2 {
-		height: 190px;
-		width: 230px;
+}
+
+/* Styles for iPhone 12 Pro */
+@media (width: 390px) and (height: 844px) {
+	.game {
+		margin-top: 130px;
+	}
+	.blob1-game {
+		width: 90px;
+		height: 90px;
+	}
+	.blob2-game {
+		width: 90px;
+		height: 90px;
+	}
+}
+
+/* Styles for Surface Duo */
+@media (width: 540px) and (height: 720px) {
+	header {
+		padding: 100px;
+	}
+
+	.game {
+		margin-top: 40px;
+	}
+
+	.final-result {
+		font-size: 1.11rem;
+		margin-top: -25px;
+		margin-left: 22px;
+	}
+
+	.blob1-game,
+	.blob2-game {
+		width: 50px;
+		height: 50px;
+	}
+}
+
+/* Styles for Nest Hub */
+@media (width: 1024px) and (height: 600px) {
+	header {
+		padding: 100px;
+	}
+
+	.game {
+		margin-top: 30px;
+	}
+
+	.final-result {
+		font-size: 1.4rem;
+		margin-top: -25px;
+		margin-left: 22px;
+	}
+
+	.check-answer {
+		margin: 10px;
+	}
+
+	.blob1-game,
+	.blob2-game {
 		display: none;
 	}
 }
-
-@media (min-width: 768px) and (max-width: 992px) {
-	header {
-		padding: 350px;
-	}
-
-	.blob1 {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		transform: translate(-50%, -50%);
-		height: 180px;
-		width: 220px;
-	}
-	.blob2 {
-		height: 190px;
-		width: 230px;
-	}
-}
-
-@media (min-width: 1024px) and (max-width: 1400px) {
-	header {
-		padding: 600px;
-	}
-	.blob1 {
-		height: 180px;
-		width: 220px;
-	}
-	.blob2 {
-		height: 190px;
-		width: 230px;
-	}
-} */

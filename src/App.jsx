@@ -4,7 +4,7 @@ import Menu from './Menu'
 import Header from '../components/Header'
 
 function App() {
-	const [started, setStarted] = useState(true)
+	const [started, setStarted] = useState(false)
 
 	return (
 		<>

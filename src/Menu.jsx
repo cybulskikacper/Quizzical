@@ -41,8 +41,8 @@ export default function Menu() {
 						<hr />
 
 						<span className="final-result">
-							You scored 3/5 correct answers
-							<button className="check-answer">Check answer </button>
+							{/* You scored 3/5 correct answers */}
+							<button className="check-answer">Check answers </button>
 						</span>
 					</div>
 

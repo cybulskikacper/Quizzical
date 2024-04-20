@@ -1,7 +1,7 @@
 import blob1 from '/src/assets/blob1.svg'
 import blob2 from '/src/assets/blob2.svg'
 
-export default function Menu() {
+export function Menu() {
 	return (
 		<>
 			<div className="game-container">

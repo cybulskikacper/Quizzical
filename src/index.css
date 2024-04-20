@@ -205,7 +205,7 @@ hr {
 
 @media (max-width: 360px) {
 	.title {
-		margin-top: 100px;
+		margin-top: 120px;
 	}
 
 	.description {
@@ -236,18 +236,23 @@ hr {
 }
 
 @media (min-width: 412px) and (max-width: 820px) {
+	header {
+		margin: 0px;
+	}
+
 	.title {
 		margin-top: 190px;
+		padding: 0;
 	}
 
 	.description {
-		margin-bottom: -20px;
+		margin-top: 50px;
 	}
 	.start {
-		margin-bottom: 80px;
+		margin-bottom: 150px;
 	}
+
 	.game {
-		margin-top: 140px;
 	}
 
 	.check-answer {
@@ -274,8 +279,8 @@ hr {
 		height: 90px;
 	}
 	.blob2-game {
-		width: 100px;
-		height: 100px;
+		width: 90px;
+		height: 90px;
 	}
 }
 
@@ -351,6 +356,20 @@ hr {
 }
 
 @media (min-width: 1200px) {
+	header {
+		margin-top: -80px;
+	}
+
+	.blob1 {
+		width: 300px;
+		height: 300px;
+	}
+
+	.blob2 {
+		width: 30px;
+		height: 50px;
+	}
+
 	.title {
 		margin-top: 300px;
 	}
@@ -380,14 +399,20 @@ hr {
 		height: 70px;
 	}
 
-	.blob1-game {
-		width: 200px;
+	.blob1 {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 500px;
 		height: 200px;
 	}
 
-	.blob2-game {
-		width: 200px;
-		height: 200px;
+	.blob2 {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 400px;
+		height: 700px;
 	}
 }
 
@@ -483,6 +508,15 @@ STYLES FOR A SINGLE DEVICE
 @media (width: 1024px) and (height: 600px) {
 	header {
 		padding: 100px;
+		margin-top: 50px;
+	}
+	.blob1 {
+		width: 150px;
+		height: 150px;
+	}
+	.blob2 {
+		width: 170px;
+		height: 170px;
 	}
 
 	.game {

@@ -2,47 +2,52 @@ import blob1 from '/src/assets/blob1.svg'
 import blob2 from '/src/assets/blob2.svg'
 
 export function Menu() {
+	const questions = [
+		{
+			question: 'How would one say goodbye in Spanish?',
+			answers: ['Adiós', 'Hola', 'Au Revoir', 'Salir'],
+		},
+		{
+			question: 'Which best selling toy of 198dddd3 caused hysteria, resulting in riots breaking in stores?',
+			answers: ['Cabbage Patch Kids', 'Transformers', 'Care Bears', 'Rubik’s Cube'],
+		},
+		{
+			question: 'What is the hottest planet in our Solar System?',
+			answers: ['Mercury', 'Venus', 'Mars', 'Saturn'],
+		},
+		{
+			question: 'In which country was dadadthe caesar salad invented?',
+			answers: ['Italy', 'Portugal', 'Maaaxico', 'France'],
+		},
+		{
+			question: 'How Many Hearts Does An dada Have?',
+			answers: ['One', 'Two', 'Three', 'Four'],
+		},
+	]
+
 	return (
 		<>
 			<div className="game-container">
 				<div className="game">
 					<div className="qa">
-						<h2 className="question"> How would one say goodbye in Spanish?</h2>
-						<button className="answer">Adiós</button>
-						<button className="answer">Hola</button>
-						<button className="answer">Au Revoir</button>
-						<button className="answer">Salir</button>
-						<hr />
-						<h2 className="question">
-							Which best selling toy of 1983 caused hysteria, resulting in riots breaking in stores?
-						</h2>
-						<button className="answer">Cabbage Patch Kids</button>
-						<button className="answer">Transformers</button>
-						<button className="answer">Care Bears</button>
-						<button className="answer">Rubik’s Cube</button>
-						<hr />
-						<h2 className="question"> What is the hottest planet in our Solar System?</h2>
-						<button className="answer">Mercury</button>
-						<button className="answer">Venus</button>
-						<button className="answer">Mars</button>
-						<button className="answer">Saturn</button>
-						<hr />
-						<h2 className="question"> In which country was the caesar salad invented?</h2>
-						<button className="answer">Italy</button>
-						<button className="answer">Portugal</button>
-						<button className="answer">Mexico</button>
-						<button className="answer">France</button>
-						<hr />
-						<h2 className="question">How Many Hearts Does An Octopus Have?</h2>
-						<button className="answer">One</button>
-						<button className="answer">Two</button>
-						<button className="answer">Three</button>
-						<button className="answer">Four</button>
-						<hr />
+						
+
+						{questions.map((questionObj, index) => (
+							<div key={index}>
+								<h2 className="question">{questionObj.question}</h2>
+								{questionObj.answers.map((answers, answersIndex) => (
+									<button key={answersIndex} className="answer">
+										{answers}
+									</button>
+								))}
+
+								{index !== questions.length - 1 && <hr />}
+							</div>
+						))}
 
 						<span className="final-result">
-							{/* You scored 3/5 correct answers */}
-							<button className="check-answer">Check answers </button>
+							You scored 3/5 correct answers
+							<button className="check-answer">Check answers</button>
 						</span>
 					</div>
 

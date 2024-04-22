@@ -1,6 +1,8 @@
 import blob1 from '/src/assets/blob1.svg'
 import blob2 from '/src/assets/blob2.svg'
 
+import { useState } from 'react'
+
 export function Menu() {
 	const questions = [
 		{
@@ -25,13 +27,15 @@ export function Menu() {
 		},
 	]
 
+	const [starWarsData, setStarWarsData] = useState({})
+
+
+
 	return (
 		<>
 			<div className="game-container">
 				<div className="game">
 					<div className="qa">
-						
-
 						{questions.map((questionObj, index) => (
 							<div key={index}>
 								<h2 className="question">{questionObj.question}</h2>
@@ -56,6 +60,10 @@ export function Menu() {
 						<img className="blob2-game" src={blob2} alt="Yellow blob" />
 					</div>
 				</div>
+			</div>
+
+			<div>
+				<pre>{JSON.stringify(starWarsData, null, 2)}</pre>
 			</div>
 		</>
 	)

@@ -1,7 +1,7 @@
 import blob1 from '/src/assets/blob1.svg'
 import blob2 from '/src/assets/blob2.svg'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export function Menu() {
 	const questions = [
@@ -27,16 +27,23 @@ export function Menu() {
 		},
 	]
 
-	const [starWarsData, setStarWarsData] = useState({})
+	const [quizApi, setQuizApi] = useState([])
 
+	useEffect(() => {
+		fetch('https://opentdb.com/api.php?amount=5')
+			.then(res => res.json())
+			.then(data => setQuizApi(data.results))
+			.catch(error => console.error('Error while fetching the quiz data'), error)
+	}, [])
 
+	console.log(quizApi)
 
 	return (
 		<>
 			<div className="game-container">
 				<div className="game">
 					<div className="qa">
-						{questions.map((questionObj, index) => (
+						{quizApi.map((questionObj, index) => (
 							<div key={index}>
 								<h2 className="question">{questionObj.question}</h2>
 								{questionObj.answers.map((answers, answersIndex) => (
@@ -49,6 +56,21 @@ export function Menu() {
 							</div>
 						))}
 
+						{/* {quizApi.map((questionObj, index) => (
+							<div key={index}>
+								<h2 className="question">{questionObj.question}</h2>
+								<div className="answers">
+									{questionObj.incorrect_answers.map((answer, answerIndex) => (
+										<button key={answerIndex} className="answer">
+											{answer}
+										</button>
+									))}
+									<button className="answer">{questionObj.correct_answer}</button>
+								</div>
+								{index !== quizApi.length - 1 && <hr />}
+							</div>
+						))} */}
+
 						<span className="final-result">
 							You scored 3/5 correct answers
 							<button className="check-answer">Check answers</button>
@@ -60,10 +82,6 @@ export function Menu() {
 						<img className="blob2-game" src={blob2} alt="Yellow blob" />
 					</div>
 				</div>
-			</div>
-
-			<div>
-				<pre>{JSON.stringify(starWarsData, null, 2)}</pre>
 			</div>
 		</>
 	)

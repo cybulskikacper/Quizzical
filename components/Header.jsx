@@ -7,7 +7,9 @@ export default function Header({ StartQuiz }) {
 			<header>
 				<h1 className="title">Quizzical</h1>
 				<p className="description">Are you ready for a quiz?</p>
-				<button className="start" onClick={StartQuiz}>Start quiz	</button>
+				<button className="start" onClick={StartQuiz}>
+					Start quiz
+				</button>
 
 				<div className="blobs">
 					<img className="blob1" src={blob1} alt="Light blob" />

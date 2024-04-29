@@ -2,37 +2,36 @@ import blob1 from '/src/assets/blob1.svg'
 import blob2 from '/src/assets/blob2.svg'
 
 import { useState, useEffect } from 'react'
-
 import { decode } from 'html-entities'
 
 export function Menu() {
 	const [questions, setQuestions] = useState([])
-	const [questionsAndAnswers, setQeustionsAndAnswers] = useState([])
+	const [questionsAndAnswers, setQuestionsAndAnswers] = useState([])
 
 	useEffect(() => {
 		fetch('https://opentdb.com/api.php?amount=5')
 			.then(res => res.json())
 			.then(data => {
 				setQuestions(data.results)
-				setQeustionsAndAnswers(
+				setQuestionsAndAnswers(
 					data.results.map(questionObj => {
 						return {
 							question: questionObj.question,
 							shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
-							correctAnswer: questionObj.correctAnswer,
-							selectedAnswer: '',
+							correctAnswer: questionObj.correct_answer,
+							selectedAnswers: '',
 						}
 					})
 				)
 			})
 	}, [])
 
-	// function to shuffle answers
+	// Function to shuffle answers
 	function shuffle(array) {
 		let currentIndex = array.length
 
-		// While there remain elements to shufle...
-		while (currentIndex != 0) {
+		// While there remain elements to shuffle...
+		while (currentIndex !== 0) {
 			// Pick a remaining element...
 			let randomIndex = Math.floor(Math.random() * currentIndex)
 			currentIndex--
@@ -40,10 +39,22 @@ export function Menu() {
 			// And swap it with the current element.
 			;[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
 		}
+
 		return array
 	}
 
-	console.log(questionsAndAnswers)
+	function handleClick(correctAnswer, currentQuestion) {
+		console.log('Question:', currentQuestion.question)
+		console.log('Correct Answer:', correctAnswer)
+	}
+
+	function updateAnswer(answer, currentQuestion) {
+		questionsAndAnswers.map(questionObject => {
+			return questionObject.question === currentQuestion
+				? { ...questionObject, selectedAnswers: answer }
+				: questionObject
+		})
+	}
 
 	return (
 		<>
@@ -52,22 +63,20 @@ export function Menu() {
 					<div className="qa">
 						{questionsAndAnswers.map((question, index) => (
 							<div key={index}>
-								<h2>{decode(question.question)}</h2>
+								<h2 className="question">{decode(question.question)}</h2>
 
-								{question.shuffledAnswers.map((answers, answersIndex) => (
-									<button className="answer" key={answersIndex}>
-										{decode(answers)}
+								{question.shuffledAnswers.map((answer, answerIndex) => (
+									<button
+										className="answer selected"
+										key={answerIndex}
+										onClick={() => handleClick(question.correctAnswer, question)}>
+										{decode(answer)}
 									</button>
 								))}
 
-								{index !== questionsAndAnswers.lenghth - 1 && <hr />}
+								{index !== questionsAndAnswers.length - 1 && <hr />}
 							</div>
 						))}
-
-						<span className="final-result">
-							{/* You scored 3/5 correct answers */}
-							<button className="check-answer">Check answers</button>
-						</span>
 					</div>
 
 					<div className="blobs">

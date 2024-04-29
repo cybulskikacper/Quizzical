@@ -3,6 +3,8 @@ import blob2 from '/src/assets/blob2.svg'
 
 import { useState, useEffect } from 'react'
 
+import { decode } from 'html-entities'
+
 export function Menu() {
 	const [questions, setQuestions] = useState([])
 	const [questionsAndAnswers, setQeustionsAndAnswers] = useState([])
@@ -50,11 +52,11 @@ export function Menu() {
 					<div className="qa">
 						{questionsAndAnswers.map((question, index) => (
 							<div key={index}>
-								<h2>{question.question}</h2>
+								<h2>{decode(question.question)}</h2>
 
 								{question.shuffledAnswers.map((answers, answersIndex) => (
 									<button className="answer" key={answersIndex}>
-										{answers}
+										{decode(answers)}
 									</button>
 								))}
 

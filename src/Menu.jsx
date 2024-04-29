@@ -26,6 +26,16 @@ export function Menu() {
 			})
 	}, [])
 
+	function updateAnswer(answer, currentQuestion) {
+		const selected = questionsAndAnswers.map(questionObject => {
+			return questionObject.question === currentQuestion
+				? { ...questionObject, selectedAnswers: answer }
+				: questionObject
+		})
+
+		setQuestionsAndAnswers(selected)
+	}
+
 	// Function to shuffle answers
 	function shuffle(array) {
 		let currentIndex = array.length
@@ -43,18 +53,7 @@ export function Menu() {
 		return array
 	}
 
-	function handleClick(correctAnswer, currentQuestion) {
-		console.log('Question:', currentQuestion.question)
-		console.log('Correct Answer:', correctAnswer)
-	}
-
-	function updateAnswer(answer, currentQuestion) {
-		questionsAndAnswers.map(questionObject => {
-			return questionObject.question === currentQuestion
-				? { ...questionObject, selectedAnswers: answer }
-				: questionObject
-		})
-	}
+	console.log(questionsAndAnswers)
 
 	return (
 		<>
@@ -67,9 +66,9 @@ export function Menu() {
 
 								{question.shuffledAnswers.map((answer, answerIndex) => (
 									<button
-										className="answer selected"
+										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}  `}
 										key={answerIndex}
-										onClick={() => handleClick(question.correctAnswer, question)}>
+										onClick={() => updateAnswer(answer, question.question)}>
 										{decode(answer)}
 									</button>
 								))}

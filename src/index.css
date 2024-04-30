@@ -171,6 +171,13 @@ hr {
 	margin: 10px;
 }
 
+.not-answered {
+	font-family: 'Karla', sans-serif;
+	font-weight: bold;
+	font-size: 22px;
+	color: red;
+}
+
 .final-result {
 	display: inline-block;
 	white-space: nowrap;
@@ -252,7 +259,7 @@ hr {
 
 @media (min-width: 412px) and (max-width: 820px) {
 	.game {
-		margin-top: 250px;
+		margin-top: 50px;
 	}
 
 	.question {
@@ -268,10 +275,10 @@ hr {
 	}
 
 	.check-answer {
-		width: 100%;
+		width: 250px;
 		height: 42px;
-		font-size: 1.4rem;
-		padding: 10px;
+		font-size: 1.7rem;
+		padding: 2px;
 	}
 
 	.blob1,
@@ -283,8 +290,8 @@ hr {
 		display: none;
 	}
 	.blob2-game {
-		width: 90px;
-		height: 60px;
+		width: 60px;
+		height: 45px;
 	}
 }
 
@@ -341,7 +348,7 @@ hr {
 
 @media (min-width: 1024px) and (max-width: 1200px) {
 	header {
-		padding: 450px;
+		padding: 150px;
 	}
 	.title {
 		margin-top: 70px;
@@ -355,7 +362,7 @@ hr {
 	}
 
 	.game {
-		margin-top: 200px;
+		margin-top: 50px;
 	}
 
 	.question {
@@ -371,8 +378,9 @@ hr {
 
 	.check-answer {
 		font-size: 1.8rem;
-		width: 100%;
+		width: 840px;
 		height: 50px;
+		padding: 10px;
 	}
 }
 

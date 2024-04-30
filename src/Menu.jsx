@@ -7,6 +7,7 @@ import { decode } from 'html-entities'
 export function Menu() {
 	const [questions, setQuestions] = useState([])
 	const [questionsAndAnswers, setQuestionsAndAnswers] = useState([])
+	const [warning, setWarning] = useState(false)
 
 	useEffect(() => {
 		fetch('https://opentdb.com/api.php?amount=5')
@@ -14,28 +15,15 @@ export function Menu() {
 			.then(data => {
 				setQuestions(data.results)
 				setQuestionsAndAnswers(
-					data.results.map(questionObj => {
-						return {
-							question: questionObj.question,
-							shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
-							correctAnswer: questionObj.correct_answer,
-							selectedAnswers: '',
-						}
-					})
+					data.results.map(questionObj => ({
+						question: questionObj.question,
+						shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
+						correctAnswer: questionObj.correct_answer,
+						selectedAnswers: '',
+					}))
 				)
 			})
 	}, [])
-
-	function updateAnswer(answer, currentQuestion) {
-		const selected = questionsAndAnswers.map(questionObject => {
-			return questionObject.question === currentQuestion
-				? { ...questionObject, selectedAnswers: answer }
-				: questionObject
-		})
-
-		setQuestionsAndAnswers(selected)
-	}
-
 	// Function to shuffle answers
 	function shuffle(array) {
 		let currentIndex = array.length
@@ -53,7 +41,21 @@ export function Menu() {
 		return array
 	}
 
-	console.log(questionsAndAnswers)
+	// choosing answer
+	function updateAnswer(answer, currentQuestion) {
+		const selected = questionsAndAnswers.map(questionObject => {
+			return questionObject.question === currentQuestion
+				? { ...questionObject, selectedAnswers: answer }
+				: questionObject
+		})
+		setQuestionsAndAnswers(selected)
+	}
+
+	function checkAnwers() {
+		const unansweredQuestions = questionsAndAnswers.some(question => question.selectedAnswers === '')
+
+		setWarning(unansweredQuestions)
+	}
 
 	return (
 		<>
@@ -63,20 +65,25 @@ export function Menu() {
 						{questionsAndAnswers.map((question, index) => (
 							<div key={index}>
 								<h2 className="question">{decode(question.question)}</h2>
-
 								{question.shuffledAnswers.map((answer, answerIndex) => (
 									<button
-										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}  `}
+										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}`}
 										key={answerIndex}
 										onClick={() => updateAnswer(answer, question.question)}>
 										{decode(answer)}
 									</button>
 								))}
-
 								{index !== questionsAndAnswers.length - 1 && <hr />}
 							</div>
 						))}
 					</div>
+
+					<span className="final-result">
+						{warning && <p className="not-answered">You have not answered all questions yet.</p>}
+						<button onClick={checkAnwers} className="check-answer">
+							Check answers
+						</button>
+					</span>
 
 					<div className="blobs">
 						<img className="blob1-game" src={blob1} alt="Light blob" />

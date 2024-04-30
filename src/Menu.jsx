@@ -4,15 +4,25 @@ import blob2 from '/src/assets/blob2.svg'
 import { useState, useEffect } from 'react'
 import { decode } from 'html-entities'
 
+// sformatowac caly kod jak skoncze
+
 export function Menu() {
+	// questions returned from  API
 	const [questions, setQuestions] = useState([])
+	// mapping each question & its answers
 	const [questionsAndAnswers, setQuestionsAndAnswers] = useState([])
+	// warnings if not answers are selected
 	const [warning, setWarning] = useState(false)
+	// number of correct answers
+	const [correctAnswers, setCorrectAnswers] = useState([])
+	// show result
+	const [showResult, setShowResult] = useState(false)
 
 	useEffect(() => {
 		fetch('https://opentdb.com/api.php?amount=5')
 			.then(res => res.json())
 			.then(data => {
+				console.log('render')
 				setQuestions(data.results)
 				setQuestionsAndAnswers(
 					data.results.map(questionObj => ({
@@ -51,10 +61,24 @@ export function Menu() {
 		setQuestionsAndAnswers(selected)
 	}
 
+	// checking answers
 	function checkAnwers() {
-		const unansweredQuestions = questionsAndAnswers.some(question => question.selectedAnswers === '')
+		// if  answers are not selected, thanks to this function below
+		// user after clicking button "Check answers", will be informed that not every answer was selected
 
+		const unansweredQuestions = questionsAndAnswers.some(question => question.selectedAnswers === '')
 		setWarning(unansweredQuestions)
+
+		// if user has selected all the answers, there will be a paragraph which will be showing how many correct answers user has scored
+		if (!unansweredQuestions) {
+			questionsAndAnswers.forEach(correctAnswer => {
+				if (correctAnswer.selectedAnswers === correctAnswer.correctAnswer) {
+					// by using clg i've seen that numbers count like an array from 0, thats why I added +1 so it's starting by 1
+					setCorrectAnswers(prevCorrectAnswer => prevCorrectAnswer + 1)
+				}
+			})
+			setShowResult(true)
+		}
 	}
 
 	return (
@@ -67,9 +91,11 @@ export function Menu() {
 								<h2 className="question">{decode(question.question)}</h2>
 								{question.shuffledAnswers.map((answer, answerIndex) => (
 									<button
-										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}`}
 										key={answerIndex}
-										onClick={() => updateAnswer(answer, question.question)}>
+										onClick={() => updateAnswer(answer, question.question)}
+										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}
+											${showResult && answer === answer.correctAnswer ? 'correct' : 'incorrect'}
+										`}>
 										{decode(answer)}
 									</button>
 								))}
@@ -78,10 +104,16 @@ export function Menu() {
 						))}
 					</div>
 
+					{correctAnswers.length > 0 && showResult ? (
+						<div className="correct-answers">
+							<p className="score">You scored {correctAnswers.length} / 5 correct answers</p>
+						</div>
+					) : null}
+
 					<span className="final-result">
 						{warning && <p className="not-answered">You have not answered all questions yet.</p>}
 						<button onClick={checkAnwers} className="check-answer">
-							Check answers
+							{showResult ? 'Play again' : 'Check answers'}
 						</button>
 					</span>
 

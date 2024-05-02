@@ -197,6 +197,7 @@ hr {
 
 .score {
 	margin-top: 20px;
+	font-size: 1.3rem;
 }
 
 .final-result {
@@ -221,6 +222,10 @@ hr {
 	right: 0;
 	width: 40px;
 	height: 30px;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 /* 	
@@ -284,7 +289,7 @@ hr {
 	}
 
 	.game {
-		margin-top: 50px;
+		margin-top: 60px;
 	}
 
 	.question {
@@ -300,10 +305,9 @@ hr {
 	}
 
 	.check-answer {
-		width: 200px;
+		width: 150px;
 		height: 42px;
-		font-size: 1.3rem;
-		padding: 2px;
+		font-size: 1.1rem;
 	}
 
 	.blob1-game {
@@ -332,7 +336,15 @@ hr {
 		margin-bottom: 550px;
 	}
 	.game {
-		margin-top: 250px;
+		margin-top: 300px;
+	}
+
+	.question {
+		font-size: 1.3rem;
+	}
+
+	.answer {
+		font-size: 1rem;
 	}
 
 	.final-result {
@@ -340,10 +352,14 @@ hr {
 	}
 
 	.check-answer {
-		width: 100%;
-		height: 42px;
-		font-size: 1.7rem;
+		width: 200px;
+		height: 60px;
+		font-size: 1.5rem;
 		padding: 10px;
+	}
+
+	.score {
+		margin-top: 50px;
 	}
 
 	.blob1-game {
@@ -372,10 +388,6 @@ hr {
 		margin-bottom: 550px;
 	}
 
-	.game {
-		margin-top: 50px;
-	}
-
 	.question {
 		font-size: 1.1rem;
 	}
@@ -386,10 +398,13 @@ hr {
 	.final-result {
 		font-size: 22px;
 	}
+	.game {
+		margin-top: 300px;
+	}
 
 	.check-answer {
-		font-size: 1.8rem;
-		width: 840px;
+		font-size: 1.6rem;
+		width: 240px;
 		height: 50px;
 		padding: 10px;
 	}
@@ -412,7 +427,7 @@ hr {
 	}
 
 	.game {
-		margin-top: 250px;
+		margin-top: 150px;
 	}
 	.question {
 		font-size: 1.2rem;
@@ -427,6 +442,7 @@ hr {
 		font-size: 1.2rem;
 		width: 160px;
 		height: 50px;
+	margin-top: 50px;
 	}
 
 	.blob1-game {
@@ -519,6 +535,14 @@ STYLES FOR A SINGLE DEVICE
 		margin-left: 22px;
 	}
 
+	.not-answered {
+		margin: 50px;
+	}
+
+	.check-answer {
+		margin: 50px;
+	}
+
 	.blob1-game,
 	.blob2-game {
 		width: 50px;
@@ -549,7 +573,7 @@ STYLES FOR A SINGLE DEVICE
 	}
 
 	.check-answer {
-		margin: 10px;
+		margin: 60px;
 	}
 
 	.blob1-game,

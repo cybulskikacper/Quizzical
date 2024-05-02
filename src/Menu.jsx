@@ -111,9 +111,11 @@ export function Menu() {
 						))}
 					</div>
 
-					{correctAnswers.length > 0 && showResult ? (
+					{showResult ? (
 						<div className="correct-answers">
-							<p className="score">You scored {correctAnswers.length} / 5 correct answers</p>
+							<p className="score">
+								You scored <span className="bold ">{correctAnswers.length} / 5</span> correct answers
+							</p>
 						</div>
 					) : null}
 					<span className="final-result">

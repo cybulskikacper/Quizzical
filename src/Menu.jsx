@@ -93,9 +93,16 @@ export function Menu() {
 									<button
 										key={answerIndex}
 										onClick={() => updateAnswer(answer, question.question)}
+										// if user clicked answer, change it color to "selected"
+										// if user clicked "check answers" and the answer he choosed is correct, change bgc color of selected answer to green (class - correct)
+										// if user clicked "check answers" and the answer he choosed is incorrect, change bgc color of selected answer to red (class - incorrect)
+
 										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}
 										
+								
+
 											${showResult && answer === question.correctAnswer ? 'correct' : ''}
+											
 											${showResult && answer === question.selectedAnswers && answer !== question.correctAnswer ? 'incorrect' : ''}
 
 f

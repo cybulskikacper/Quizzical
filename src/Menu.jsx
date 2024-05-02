@@ -29,7 +29,7 @@ export function Menu() {
 					}))
 				)
 			})
-	}, [])
+	}, [questions])
 	// Function to shuffle answers
 	function shuffle(array) {
 		let currentIndex = array.length
@@ -77,6 +77,13 @@ export function Menu() {
 		}
 	}
 
+	function resetGame() {
+		setQuestions([])
+		setQuestionsAndAnswers([])
+		setCorrectAnswers([])
+		setShowResult(false)
+	}
+
 	return (
 		<>
 			<div className="game-container">
@@ -111,11 +118,11 @@ export function Menu() {
 					) : null}
 					<span className="final-result">
 						{warning && <p className="not-answered">You have not answered all questions yet.</p>}
-						<button onClick={checkAnwers} className="check-answer">
+						<button onClick={showResult ? resetGame : checkAnwers} className="check-answer">
 							{showResult ? 'Play again' : 'Check answers'}
 						</button>
 					</span>
-					
+
 					<div className="blobs">
 						<img className="blob1-game" src={blob1} alt="Light blob" />
 						<img className="blob2-game" src={blob2} alt="Yellow blob" />

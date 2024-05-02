@@ -1,13 +1,10 @@
 import blob1 from '/src/assets/blob1.svg'
 import blob2 from '/src/assets/blob2.svg'
-
 import { useState, useEffect } from 'react'
 import { decode } from 'html-entities'
 
-// sformatowac caly kod jak skoncze
-
 export function Menu() {
-	// questions returned from  API
+	// questions returned from API
 	const [questions, setQuestions] = useState([])
 	// mapping each question & its answers
 	const [questionsAndAnswers, setQuestionsAndAnswers] = useState([])
@@ -22,7 +19,6 @@ export function Menu() {
 		fetch('https://opentdb.com/api.php?amount=5')
 			.then(res => res.json())
 			.then(data => {
-				console.log('render')
 				setQuestions(data.results)
 				setQuestionsAndAnswers(
 					data.results.map(questionObj => ({
@@ -98,17 +94,8 @@ export function Menu() {
 										// if user clicked "check answers" and the answer he choosed is incorrect, change bgc color of selected answer to red (class - incorrect)
 
 										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}
-										
-								
-
 											${showResult && answer === question.correctAnswer ? 'correct' : ''}
-											
-											${showResult && answer === question.selectedAnswers && answer !== question.correctAnswer ? 'incorrect' : ''}
-
-f
-
-
-										`}>
+											${showResult && answer === question.selectedAnswers && answer !== question.correctAnswer ? 'incorrect' : ''}`}>
 										{decode(answer)}
 									</button>
 								))}
@@ -122,14 +109,13 @@ f
 							<p className="score">You scored {correctAnswers.length} / 5 correct answers</p>
 						</div>
 					) : null}
-
 					<span className="final-result">
 						{warning && <p className="not-answered">You have not answered all questions yet.</p>}
 						<button onClick={checkAnwers} className="check-answer">
 							{showResult ? 'Play again' : 'Check answers'}
 						</button>
 					</span>
-
+					
 					<div className="blobs">
 						<img className="blob1-game" src={blob1} alt="Light blob" />
 						<img className="blob2-game" src={blob2} alt="Yellow blob" />

@@ -94,7 +94,13 @@ export function Menu() {
 										key={answerIndex}
 										onClick={() => updateAnswer(answer, question.question)}
 										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}
-											${showResult && answer === answer.correctAnswer ? 'correct' : 'incorrect'}
+										
+											${showResult && answer === question.correctAnswer ? 'correct' : ''}
+											${showResult && answer === question.selectedAnswers && answer !== question.correctAnswer ? 'incorrect' : ''}
+
+f
+
+
 										`}>
 										{decode(answer)}
 									</button>

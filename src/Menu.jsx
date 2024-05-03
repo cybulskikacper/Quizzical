@@ -15,12 +15,11 @@ export function Menu() {
 	// show result
 	const [showResult, setShowResult] = useState(false)
 
-	useEffect(() => {
+	const fetchQuestionsAndFormatData = () => {
 		fetch('https://opentdb.com/api.php?amount=5')
 			.then(res => res.json())
 			.then(data => {
 				console.log(data)
-
 				const formattedData = data.results.map(questionObj => ({
 					question: questionObj.question,
 					shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
@@ -29,7 +28,12 @@ export function Menu() {
 				}))
 				setQuestionsAndAnswers(formattedData)
 			})
+	}
+
+	useEffect(() => {
+		fetchQuestionsAndFormatData()
 	}, [questions])
+
 	// Function to shuffle answers
 	function shuffle(array) {
 		let currentIndex = array.length

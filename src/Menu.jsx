@@ -17,16 +17,30 @@ export function Menu() {
 
 	const fetchQuestionsAndFormatData = () => {
 		fetch('https://opentdb.com/api.php?amount=5')
-			.then(res => res.json())
+			.then(res => {
+				if (!res.ok) {
+					throw new Error('Network response was not ok')
+				}
+				return res.json()
+			})
 			.then(data => {
 				console.log(data)
-				const formattedData = data.results.map(questionObj => ({
-					question: questionObj.question,
-					shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
-					correctAnswer: questionObj.correct_answer,
-					selectedAnswers: '',
-				}))
-				setQuestionsAndAnswers(formattedData)
+				if (data.results && data.results.length > 0) {
+					const formattedData = data.results.map(questionObj => ({
+						question: questionObj.question,
+						shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
+						correctAnswer: questionObj.correct_answer,
+						selectedAnswers: '',
+					}))
+					setQuestionsAndAnswers(formattedData)
+				} else {
+					console.error('No data or empty array returned from API')
+					// Handle the case when no data is returned from the API
+				}
+			})
+			.catch(error => {
+				console.error('Error fetching data from API:', error)
+				// Handle the fetch error
 			})
 	}
 

@@ -263,7 +263,15 @@ hr {
 	}
 
 	.game {
-		margin-top: 40px;
+		margin-top: 210px;
+	}
+
+	.question {
+		font-size: 1.3rem;
+	}
+
+	.answer {
+		font-size: 1rem;
 	}
 
 	.final-result {
@@ -272,6 +280,7 @@ hr {
 	.check-answer {
 		width: 130px;
 		height: 40px;
+		margin-top: 60px;
 	}
 }
 
@@ -289,14 +298,7 @@ hr {
 	}
 
 	.game {
-		margin-top: 60px;
-	}
-
-	.question {
-		font-size: 0.9rem;
-	}
-	.answer {
-		font-size: 14px;
+		margin-top: 180px;
 	}
 
 	.final-result {
@@ -335,31 +337,17 @@ hr {
 	.start {
 		margin-bottom: 550px;
 	}
-	.game {
-		margin-top: 300px;
-	}
-
-	.question {
-		font-size: 1.3rem;
-	}
-
-	.answer {
-		font-size: 1rem;
-	}
 
 	.final-result {
 		margin-top: 60px;
 	}
 
-	.check-answer {
-		width: 200px;
-		height: 60px;
-		font-size: 1.5rem;
-		padding: 10px;
-	}
-
 	.score {
 		margin-top: 50px;
+	}
+
+	.game {
+		margin-top: 150px;
 	}
 
 	.blob1-game {
@@ -399,14 +387,11 @@ hr {
 		font-size: 22px;
 	}
 	.game {
-		margin-top: 300px;
+		margin-top: 200px;
 	}
 
 	.check-answer {
-		font-size: 1.6rem;
-		width: 240px;
-		height: 50px;
-		padding: 10px;
+		margin-top: 50px;
 	}
 }
 
@@ -429,12 +414,7 @@ hr {
 	.game {
 		margin-top: 150px;
 	}
-	.question {
-		font-size: 1.2rem;
-	}
-	.answer {
-		font-size: 1rem;
-	}
+
 	.final-result {
 		font-size: 1.2rem;
 	}
@@ -442,7 +422,7 @@ hr {
 		font-size: 1.2rem;
 		width: 160px;
 		height: 50px;
-	margin-top: 50px;
+		margin-top: 50px;
 	}
 
 	.blob1-game {

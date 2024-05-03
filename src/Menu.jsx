@@ -19,15 +19,15 @@ export function Menu() {
 		fetch('https://opentdb.com/api.php?amount=5')
 			.then(res => res.json())
 			.then(data => {
-				setQuestions(data.results)
-				setQuestionsAndAnswers(
-					data.results.map(questionObj => ({
-						question: questionObj.question,
-						shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
-						correctAnswer: questionObj.correct_answer,
-						selectedAnswers: '',
-					}))
-				)
+				console.log(data)
+
+				const formattedData = data.results.map(questionObj => ({
+					question: questionObj.question,
+					shuffledAnswers: shuffle([...questionObj.incorrect_answers, questionObj.correct_answer]),
+					correctAnswer: questionObj.correct_answer,
+					selectedAnswers: '',
+				}))
+				setQuestionsAndAnswers(formattedData)
 			})
 	}, [questions])
 	// Function to shuffle answers
@@ -89,26 +89,27 @@ export function Menu() {
 			<div className="game-container">
 				<div className="game">
 					<div className="qa">
-						{questionsAndAnswers.map((question, index) => (
-							<div key={index}>
-								<h2 className="question">{decode(question.question)}</h2>
-								{question.shuffledAnswers.map((answer, answerIndex) => (
-									<button
-										key={answerIndex}
-										onClick={() => updateAnswer(answer, question.question)}
-										// if user clicked answer, change it color to "selected"
-										// if user clicked "check answers" and the answer he choosed is correct, change bgc color of selected answer to green (class - correct)
-										// if user clicked "check answers" and the answer he choosed is incorrect, change bgc color of selected answer to red (class - incorrect)
+						{questionsAndAnswers.length > 0 &&
+							questionsAndAnswers.map((question, index) => (
+								<div key={index}>
+									<h2 className="question">{decode(question.question)}</h2>
+									{question.shuffledAnswers.map((answer, answerIndex) => (
+										<button
+											key={answerIndex}
+											onClick={() => updateAnswer(answer, question.question)}
+											// if user clicked answer, change it color to "selected"
+											// if user clicked "check answers" and the answer he choosed is correct, change bgc color of selected answer to green (class - correct)
+											// if user clicked "check answers" and the answer he choosed is incorrect, change bgc color of selected answer to red (class - incorrect)
 
-										className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}
+											className={`answer ${answer === question.selectedAnswers ? 'selected' : ''}
 											${showResult && answer === question.correctAnswer ? 'correct' : ''}
 											${showResult && answer === question.selectedAnswers && answer !== question.correctAnswer ? 'incorrect' : ''}`}>
-										{decode(answer)}
-									</button>
-								))}
-								{index !== questionsAndAnswers.length - 1 && <hr />}
-							</div>
-						))}
+											{decode(answer)}
+										</button>
+									))}
+									{index !== questionsAndAnswers.length - 1 && <hr />}
+								</div>
+							))}
 					</div>
 
 					{showResult ? (

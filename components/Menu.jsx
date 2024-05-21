@@ -8,11 +8,8 @@ export function Menu() {
 	const [questions, setQuestions] = useState([])
 	// mapping each question & its answers
 	const [questionsAndAnswers, setQuestionsAndAnswers] = useState([])
-	// warnings if not answers are selected
 	const [warning, setWarning] = useState(false)
-	// number of correct answers
 	const [correctAnswers, setCorrectAnswers] = useState([])
-	// show result
 	const [showResult, setShowResult] = useState(false)
 
 	const fetchQuestionsAndFormatData = () => {

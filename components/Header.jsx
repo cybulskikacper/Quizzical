@@ -3,21 +3,19 @@ import blob2 from '/src/assets/blob2.svg'
 
 export default function Header({ StartQuiz }) {
 	return (
-		<>
-			<header>
-				<div className="header-container">
-					<h1 className="title">Quizzical</h1>
-					<p className="description">Are you ready for a quiz?</p>
-					<button className="start" onClick={StartQuiz}>
-						Start quiz
-					</button>
-				</div>
+		<header>
+			<div className="header-container">
+				<h1 className="title">Quizzical</h1>
+				<p className="description">Are you ready for a quiz?</p>
+				<button className="start" onClick={StartQuiz}>
+					Start quiz
+				</button>
+			</div>
 
-				<div className="blobs">
-					<img className="blob1" src={blob1} alt="Light blob" />
-					<img className="blob2" src={blob2} alt="Yellow blob" />
-				</div>
-			</header>
-		</>
+			<div className="blobs">
+				<img className="blob1" src={blob1} alt="Light blob" />
+				<img className="blob2" src={blob2} alt="Yellow blob" />
+			</div>
+		</header>
 	)
 }

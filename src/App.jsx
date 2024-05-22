@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { Menu } from '../components/Menu'
-import Header from '../components/Header'
+import { useState } from 'react'
+import { Menu } from './components/Menu'
+import Header from './components/Header'
 
 function App() {
 	const [isStarted, isSetStarted] = useState(false)
